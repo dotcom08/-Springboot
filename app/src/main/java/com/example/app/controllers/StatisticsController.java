@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/update")
-public class UpdateController {
+@RequestMapping("/api/stats")
+public class StatisticsController {
     @Autowired
     private IApplicationService applicationService;
     @Autowired
