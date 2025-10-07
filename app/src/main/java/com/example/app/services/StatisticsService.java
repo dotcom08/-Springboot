@@ -1,7 +1,7 @@
 package com.example.app.services;
 
 import com.example.app.dtos.UpdateStateDTO;
-import com.example.app.repositories.ApplicationRepository;
+import com.example.app.repositories.AppVersionRepository;
 import com.example.app.repositories.UserDeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ public class StatisticsService implements IStatisticsService{
     @Autowired
     private UserDeviceRepository userDeviceRepository;
     @Autowired
-    private ApplicationRepository applicationRepository;
+    private AppVersionRepository appVersionRepository;
 
     @Override
     public UpdateStateDTO getUpdateStatistics(String version) {
