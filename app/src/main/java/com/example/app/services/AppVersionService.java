@@ -50,7 +50,7 @@ public class AppVersionService implements IAppVersionService {
     public List<AppVersion> getAllActiveVersionsByPlatform(Platform platform) {
         return appVersionRepository.findByPlatform(platform);
     }
-    
+
     /**
      * Обновить информацию о версии
      */
