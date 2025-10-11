@@ -50,12 +50,7 @@ public class AppVersionService implements IAppVersionService {
     public List<AppVersion> getAllActiveVersionsByPlatform(Platform platform) {
         return appVersionRepository.findByPlatform(platform);
     }
-
-    @Override
-    public Optional<AppVersion> checkForUpdate(Platform platform, String currentVersion) {
-        return Optional.empty();
-    }
-
+    
     /**
      * Обновить информацию о версии
      */
