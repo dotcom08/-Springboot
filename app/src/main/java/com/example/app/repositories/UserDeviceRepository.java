@@ -11,10 +11,17 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserDeviceRepository extends JpaRepository<UserDevice, Long> {
-    Optional<UserDevice> findByUserId(String userId);
-    List<UserDevice> findByPlatformAndCurrentVersion(Platform platform, String version);
+    // Найти устройства по идентификатору пользователя
+    List<UserDevice> findByUserId(String userId);
+
+    // Найти устройства по платформе
     List<UserDevice> findByPlatform(Platform platform);
-    List<UserDevice> findByLastSeenAfter(LocalDateTime date);
+
+    // Найти устройства по версии приложения
+    List<UserDevice> findByCurrentVersion(String currentVersion);
+
+    // Найти устройство по userId и платформе
+    Optional<UserDevice> findByUserIdAndPlatform(String userId, Platform platform);
 
 
 }
