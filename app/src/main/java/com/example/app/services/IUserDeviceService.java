@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IUserDeviceService {
-    UserDevice createOrUpdateDevices(UserDevice device);
+    UserDevice createOrUpdateDevice(UserDevice device);
     List<UserDevice> getAllDevices();
     Optional<UserDevice> getDeviceById(Long id);
     boolean deleteDevice(Long id);
-    List<UserDevice> getDeviceByUserId(String userId);
+    List<UserDevice> getDevicesByUserId(String userId);
     UserDevice updateDevice(Long id, UserDevice deviceDetails);
 }

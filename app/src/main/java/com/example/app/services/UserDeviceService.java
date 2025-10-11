@@ -1,6 +1,6 @@
 package com.example.app.services;
 
-import com.example.app.models.Platform;
+
 import com.example.app.models.UserDevice;
 import com.example.app.repositories.UserDeviceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class UserDeviceService implements IUserDeviceService{
      * Создать или обновить информацию об устройстве
      */
     @Override
-    public UserDevice createOrUpdateDevices(UserDevice device) {
+    public UserDevice createOrUpdateDevice(UserDevice device) {
         // Проверить, существует ли уже устройство для этого пользователя и платформы
         Optional<UserDevice> existingDevice = userDeviceRepository
                 .findByUserIdAndPlatform(device.getUserId(), device.getPlatform());
@@ -91,7 +91,7 @@ public class UserDeviceService implements IUserDeviceService{
      * Получить устройства пользователя
      */
     @Override
-    public List<UserDevice> getDeviceByUserId(String userId) {
+    public List<UserDevice> getDevicesByUserId(String userId) {
         return userDeviceRepository.findByUserId(userId);
     }
 }
