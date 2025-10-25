@@ -13,18 +13,16 @@ import java.util.Optional;
 
 @Repository
 public interface AppVersionRepository extends JpaRepository<AppVersion, Long> {
-    // Найти все версии для определенной платформы
-    List<AppVersion> findByPlatform(Platform platform);
 
-    // Найти активные версии для платформы
-    //List<AppVersion> findByPlatformAndIsActiveTrue(Platform platform);
+    Optional<AppVersion> findFirstByPlatformOrderByReleaseDateDesc(Platform platform);
 
-    // Найти версию по номеру и платформе
-    //Optional<AppVersion> findByVersionAndPlatform(String version, Platform platform);
+    List<AppVersion> findByPlatformOrderByReleaseDateDesc(Platform platform);
 
-    // Найти последнюю активную версию для платформы
-    @Query("SELECT av FROM AppVersion av WHERE av.platform = :platform AND av.isActive = true ORDER BY av.releaseDate DESC LIMIT 1")
-    Optional<AppVersion> findLatestByPlatform(@Param("platform") Platform platform);
+    boolean existsByVersionAndPlatform(String version, Platform platform);
+
+    @Query("SELECT av FROM AppVersion av WHERE av.platform = :platform AND av.version > :currentVersion ORDER BY av.releaseDate DESC")
+    List<AppVersion> findNewerVersions(@Param("platform") Platform platform,
+                                       @Param("currentVersion") String currentVersion);
 }
 
 
